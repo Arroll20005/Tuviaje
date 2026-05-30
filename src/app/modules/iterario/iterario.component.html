@@ -1,0 +1,61 @@
+<div class="contenedor-principal">
+    <div class="header">
+        <img src="assets/logos/logoletras.svg" alt="Logo">
+    </div>
+
+    <div class="destino-texto">
+        <p>Destinos más buscados</p>
+    </div>
+
+    <div class="tarjetas">
+        <div class="quito">
+            <p>Quito</p>
+        </div>
+
+        <div class="bahia">
+            <p>Bahía de Caraquez</p>
+        </div>
+
+        <div class="portoviejo">
+            <p>Portoviejo</p>
+        </div>
+    </div>
+
+    <div class="busqueda">
+        <div class="tarjeta origen">
+            <div class="etiqueta">Origen</div>
+            <input type="text" class="input-ciudad" placeholder="Ciudad de origen" [(ngModel)]="origen">
+        </div>
+
+        <i class="pi pi-arrow-right-arrow-left" (click)="intercambiar()"></i>
+
+        <div class="tarjeta destino">
+            <div class="etiqueta">Destino</div>
+            <input type="text" class="input-ciudad" placeholder="Ciudad de destino" [(ngModel)]="destino">
+        </div>
+
+        <div class="tarjeta fecha">
+            <div class="etiqueta">Fecha de viaje</div>
+            <p-calendar [(ngModel)]="fechaViaje" dateFormat="dd/mm/yy" placeholder="Fecha de viaje" [showIcon]="true" styleClass="calendario-personalizado"></p-calendar>
+        </div>
+
+        <div class="boton-buscar">
+            <div class="etiqueta-buscar">Buscar</div>
+            <i class="pi pi-search"></i>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <span>Preguntas frecuentes</span>
+            <span>Términos y condiciones</span>
+        </div>
+
+        <div class="footer-logos">
+            <div class="logo reina"></div>
+            <div class="logo coactur"></div>
+            <div class="logo trans"></div>
+            <div class="logo rp"></div>
+        </div>
+    </footer>
+</div>
