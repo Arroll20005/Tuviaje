@@ -6,4 +6,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: 'iterario',
+    loadComponent: () =>
+      import('./modules/iterario/pages/iterario/iterario.component').then(
+        (m) => m.IterarioComponent,
+      ),
+  },
 ];

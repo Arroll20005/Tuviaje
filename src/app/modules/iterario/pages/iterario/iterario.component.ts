@@ -5,9 +5,9 @@ import { CalendarModule } from 'primeng/calendar';
 @Component({
   selector: 'app-iterario',
   standalone: true,
-  imports: [FormsModule, CalendarModule],  
+  imports: [FormsModule, CalendarModule],
   templateUrl: './iterario.component.html',
-  styleUrls: ['./itinerario.component.scss']
+  styleUrl: './iterario.component.scss',
 })
 export class IterarioComponent {
   origen: string = '';

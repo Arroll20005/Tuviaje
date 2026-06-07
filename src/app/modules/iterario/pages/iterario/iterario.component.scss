@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
 
 .contenedor-principal {
   display: flex;
@@ -10,7 +10,7 @@
 }
 
 .header {
-  background-image: url('/assets/images/guayaquil.jpg');
+  background-image: url("/assets/images/guayaquil.jpg");
   background-size: cover;
   background-position: center;
   min-height: 120px;
@@ -31,7 +31,9 @@
   justify-content: center;
 }
 
-.quito, .bahia, .portoviejo {
+.quito,
+.bahia,
+.portoviejo {
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -41,22 +43,22 @@
   justify-content: flex-end;
   align-items: flex-end;
   padding: 10px;
-  color: #FDE870;
-  font-family: 'Archivo Black', sans-serif;
+  color: #fde870;
+  font-family: "Archivo Black", sans-serif;
   font-weight: bold;
   font-size: 15px;
 }
 
 .quito {
-  background-image: url('/assets/images/quito.jpg');
+  background-image: url("/assets/images/quito.jpg");
 }
 
 .bahia {
-  background-image: url('/assets/images/bahia.jpg');
+  background-image: url("/assets/images/bahia.jpg");
 }
 
 .portoviejo {
-  background-image: url('/assets/images/portoviejo.jpg');
+  background-image: url("/assets/images/portoviejo.jpg");
 }
 
 .busqueda {
@@ -78,10 +80,10 @@
 
 .tarjeta {
   background: white;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   padding: 0.5rem 1.2rem;
   border-radius: 25px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -104,7 +106,7 @@
   background: transparent !important;
   padding: 0.2rem 0 !important;
   font-size: 1rem !important;
-  font-family: 'Archivo', sans-serif !important;
+  font-family: "Archivo", sans-serif !important;
   color: #333 !important;
   width: 100% !important;
 }
@@ -127,12 +129,12 @@
   font-size: 1rem;
   outline: none;
   background: transparent;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
   width: 100%;
 }
 
 .boton-buscar {
-  background-color: #FDE870;
+  background-color: #fde870;
   border-radius: 25px;
   width: 120px;
   height: 75px;
@@ -141,9 +143,9 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
   flex-shrink: 0;
 }
 
@@ -161,7 +163,7 @@
 
 .footer {
   height: 210px;
-  background-color: #FDE870;
+  background-color: #fde870;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -196,21 +198,21 @@
 .coactur {
   width: 120px;
   height: 120px;
-  background-image: url('/assets/coop/coactur.png');
+  background-image: url("/assets/coop/coactur.png");
 }
 
 .reina {
   width: 120px;
   height: 120px;
-  background-image: url('/assets/coop/reina.png');
+  background-image: url("/assets/coop/reina.png");
 }
 
 .trans {
-  background-image: url('/assets/coop/trans.png');
+  background-image: url("/assets/coop/trans.png");
 }
 
 .rp {
-  background-image: url('/assets/coop/porto.png');
+  background-image: url("/assets/coop/porto.png");
 }
 
 .destino-texto {
