@@ -1,0 +1,55 @@
+<div class="container">
+  <p-card class="login-card">
+    <div class="logo-section">
+      <h1 class="logo">Tu Viaje</h1>
+      <p class="subtitle">Viaja con las mejores cooperativas de Manabí</p>
+    </div>
+
+    <div class="form-container">
+      <div class="field">
+        <span class="p-input-icon-left w-full">
+          <i class="pi pi-user custom-user-icon"></i>
+          <input
+            type="text"
+            pInputText
+            placeholder="Correo, celular o usuario"
+            class="w-full custom-input"
+          />
+        </span>
+      </div>
+
+      <div class="field">
+        <div class="password-wrapper">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="Contraseña"
+            class="custom-input custom-input--password"
+          />
+          <i
+            class="pi"
+            [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"
+            (click)="showPassword = !showPassword"
+          ></i>
+        </div>
+      </div>
+    </div>
+
+    <button
+      pButton
+      type="button"
+      label="Iniciar sesión"
+      class="login-btn w-full"
+      (click)="iniciarSesion()"
+    ></button>
+
+    <p-divider align="center" class="custom-divider">o</p-divider>
+
+    <div class="links-container">
+      <a class="link-btn primary-link" routerLink="/registro">Registrarse</a>
+
+      <a class="link-btn secondary-link" routerLink="/iterario"
+        >Continuar sin iniciar sesión</a
+      >
+    </div>
+  </p-card>
+</div>
