@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { IterarioComponent } from './modules/iterario/iterario.component';
-import { PagoComponent } from './modules/pago/pago.component';
 
 export const routes: Routes = [
   {
@@ -17,7 +15,10 @@ export const routes: Routes = [
   },
   { 
     path: 'pago', 
-    component: PagoComponent 
+    loadComponent: () => 
+      import('./modules/pago/pago/pago.component').then(
+        (m) => m.PagoComponent
+      ),
   },
   { 
     path: '**', 
