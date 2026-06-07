@@ -1,5 +1,26 @@
+/* Reset global */
 @import "primeicons/primeicons.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* o el color que prefieras */
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
 
 .container {
   min-height: 100vh;
@@ -87,93 +108,93 @@
       }
     }
 
-   .password-wrapper {
-  position: relative;
-  width: 100%;
+    .password-wrapper {
+      position: relative;
+      width: 100%;
 
-  .custom-input--password {
-    padding: 14px 46px 14px 16px !important; // ojo a la derecha
-  }
+      .custom-input--password {
+        padding: 14px 46px 14px 16px !important; // ojo a la derecha
+      }
 
-  i.pi {
-    position: absolute !important;
-    top: 50% !important;
-    right: 16px !important;
-    transform: translateY(-50%) !important;
-    font-size: 18px !important;
-    color: #94a3b8 !important;
-    cursor: pointer !important;
-    z-index: 10 !important;
+      i.pi {
+        position: absolute !important;
+        top: 50% !important;
+        right: 16px !important;
+        transform: translateY(-50%) !important;
+        font-size: 18px !important;
+        color: #94a3b8 !important;
+        cursor: pointer !important;
+        z-index: 10 !important;
 
-    &:hover {
-      color: #facc15 !important;
+        &:hover {
+          color: #facc15 !important;
+        }
+      }
     }
   }
 }
-    }
+
+.login-btn {
+  background: #facc15 !important;
+  border: none !important;
+  color: #1e293b !important;
+  padding: 15px !important;
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  font-family: "Poppins", sans-serif !important;
+  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.3) !important;
+  transition: all 0.2s ease !important;
+  display: block !important;
+  width: 100% !important;
+
+  &:hover {
+    background: #eab308 !important;
+    box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4) !important;
+  }
+}
+
+.p-divider {
+  margin: 28px 0 !important;
+
+  .p-divider-content {
+    background: #ffffff !important;
+    color: #cbd5e1 !important;
+    padding: 0 12px !important;
+  }
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+
+  .link-btn {
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
   }
 
-  .login-btn {
-    background: #facc15 !important;
-    border: none !important;
-    color: #1e293b !important;
-    padding: 15px !important;
-    border-radius: 14px !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    font-family: "Poppins", sans-serif !important;
-    box-shadow: 0 4px 14px rgba(250, 204, 21, 0.3) !important;
-    transition: all 0.2s ease !important;
-    display: block !important;
-    width: 100% !important;
+  .primary-link {
+    color: #1e293b;
+    border-bottom: 2px solid #facc15;
+    padding-bottom: 2px;
 
     &:hover {
-      background: #eab308 !important;
-      box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4) !important;
+      color: #000000;
+      border-color: #eab308;
     }
   }
 
-  .p-divider {
-    margin: 28px 0 !important;
+  .secondary-link {
+    color: #64748b;
+    font-weight: 500;
 
-    .p-divider-content {
-      background: #ffffff !important;
-      color: #cbd5e1 !important;
-      padding: 0 12px !important;
-    }
-  }
-
-  .links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    align-items: center;
-
-    .link-btn {
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .primary-link {
+    &:hover {
       color: #1e293b;
-      border-bottom: 2px solid #facc15;
-      padding-bottom: 2px;
-
-      &:hover {
-        color: #000000;
-        border-color: #eab308;
-      }
-    }
-
-    .secondary-link {
-      color: #64748b;
-      font-weight: 500;
-
-      &:hover {
-        color: #1e293b;
-      }
     }
   }
+}
