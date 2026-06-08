@@ -4,9 +4,27 @@
   </div>
 
   <div class="seccion-pago">
+    <div class="miga-pan-container">
+      <div class="step completed">Buscar Viaje</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Cooperativa</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Iterario</div>
+      <div class="step-line completed"></div>
+
+      <div class="step completed">Asientos</div>
+      <div class="step-line completed"></div>
+      <div class="step active">Pago</div>
+
+      <div class="step-line"></div>
+      <div class="step">Confirmación</div>
+    </div>
     <div class="tarjeta-pago">
-      
-      <div class="accion-regresar">
+      <div
+        class="accion-regresar"
+        (click)="irAAsientos()"
+        style="cursor: pointer"
+      >
         <i class="pi pi-arrow-left"></i>
         <span>Regresar</span>
       </div>
@@ -28,83 +46,101 @@
 
         <div class="detalle-ruta">
           <div class="item-ruta">
-            <span class="fuerte">Fecha:</span> <span class="texto-gris">-- de -- de ----</span>
+            <span class="fuerte">Fecha:</span>
+            <span class="texto-gris">-- de -- de ----</span>
           </div>
-          
-<div class="mapa-ruta">
-  <div class="linea-conexion"></div>
-  
-  <div class="nodo-ruta">
-    <div class="indicador-punto">
-      <span class="punto amarillo"></span>
-    </div>
-    <div class="contenido-nodo">
-      <span class="fuerte">Origen</span>
-      <span class="texto-ciudad">Ciudad de origen</span>
-    </div>
-  </div>
 
-  <div class="nodo-ruta">
-    <div class="indicador-punto">
-      <span class="punto blanco"></span>
-    </div>
-    <div class="contenido-nodo">
-      <span class="fuerte">Destino</span>
-      <span class="texto-ciudad">Ciudad de destino</span>
-    </div>
-  </div>
-</div>
+          <div class="mapa-ruta">
+            <div class="linea-conexion"></div>
+
+            <div class="nodo-ruta">
+              <div class="indicador-punto">
+                <span class="punto amarillo"></span>
+              </div>
+              <div class="contenido-nodo">
+                <span class="fuerte">Origen</span>
+                <span class="texto-ciudad">Ciudad de origen</span>
+              </div>
+            </div>
+
+            <div class="nodo-ruta">
+              <div class="indicador-punto">
+                <span class="punto blanco"></span>
+              </div>
+              <div class="contenido-nodo">
+                <span class="fuerte">Destino</span>
+                <span class="texto-ciudad">Ciudad de destino</span>
+              </div>
+            </div>
+          </div>
 
           <hr class="linea-division-punteada" />
 
           <div class="item-ruta">
-            <span class="fuerte">Asientos:</span> <span class="texto-gris">Ninguno seleccionado</span>
+            <span class="fuerte">Asientos:</span>
+            <span class="texto-gris">Ninguno seleccionado</span>
           </div>
         </div>
       </div>
 
       <h2 class="titulo-seccion">MÉTODO DE PAGO</h2>
       <div class="bloque-metodos">
-        
         <div class="opcion-metodo">
-          <p-radioButton 
-            name="metodo" 
-            value="tarjeta" 
-            [(ngModel)]="metodoPago" 
-            id="tarjeta">
+          <p-radioButton
+            name="metodo"
+            value="tarjeta"
+            [(ngModel)]="metodoPago"
+            id="tarjeta"
+          >
           </p-radioButton>
-          <label for="tarjeta" class="fuerte label-metodo">Tarjeta de crédito/débito</label>
+          <label for="tarjeta" class="fuerte label-metodo"
+            >Tarjeta de crédito/débito</label
+          >
         </div>
 
         <div class="formulario-tarjeta" *ngIf="metodoPago === 'tarjeta'">
-          <input type="text" class="input-pago" placeholder="Número de tarjeta" />
+          <input
+            type="text"
+            class="input-pago"
+            placeholder="Número de tarjeta"
+          />
           <div class="fila-inputs">
-            <input type="text" class="input-pago" placeholder="Fecha de vencimiento" />
+            <input
+              type="text"
+              class="input-pago"
+              placeholder="Fecha de vencimiento"
+            />
             <input type="text" class="input-pago" placeholder="CVV" />
             <div class="icono-visa">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" />
+              <img src="/assets/images/visa.svg" alt="Visa" />
             </div>
           </div>
         </div>
 
         <div class="opcion-metodo">
-          <p-radioButton 
-            name="metodo" 
-            value="billetera" 
-            [(ngModel)]="metodoPago" 
-            id="billetera">
+          <p-radioButton
+            name="metodo"
+            value="billetera"
+            [(ngModel)]="metodoPago"
+            id="billetera"
+          >
           </p-radioButton>
-          <label for="billetera" class="fuerte label-metodo">Billetera digital</label>
+          <label for="billetera" class="fuerte label-metodo"
+            >Billetera digital</label
+          >
         </div>
 
         <div class="opcion-metodo">
-          <p-radioButton 
-            name="metodo" 
-            value="efectivo" 
-            [(ngModel)]="metodoPago" 
-            id="efectivo">
+          <p-radioButton
+            name="metodo"
+            value="efectivo"
+            [(ngModel)]="metodoPago"
+            id="efectivo"
+          >
           </p-radioButton>
-          <label for="efectivo" class="fuerte label-metodo">Efectivo en agencia</label>
+          <label for="efectivo" class="fuerte label-metodo"
+            >Efectivo en agencia</label
+          >
         </div>
 
         <div class="acciones-finales">
@@ -112,11 +148,11 @@
             <span class="etiqueta-total">Total:</span>
             <span class="valor-total">$0.00</span>
           </div>
-          <button type="button" class="btn-pagar">PAGAR</button>
+          <button type="button" class="btn-pagar" (click)="procesarPago()">
+            PAGAR
+          </button>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

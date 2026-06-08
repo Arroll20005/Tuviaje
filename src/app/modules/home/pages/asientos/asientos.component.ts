@@ -88,7 +88,7 @@ export class AsientosComponent implements OnInit {
         asiento.estado = 'disponible';
       }
     });
-    this.router.navigate(['/seleccion-cooperativas']);
+    this.router.navigate(['/itinerario-viaje']);
   }
 
   pagar(): void {

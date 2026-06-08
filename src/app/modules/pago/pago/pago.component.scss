@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
 
 .contenedor-principal {
   display: flex;
@@ -7,12 +7,12 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
   background-color: #f5f5f5;
 }
 
 .header {
-  background-image: url('/assets/images/guayaquil.jpg');
+  background-image: url("/assets/images/guayaquil.jpg");
   background-size: cover;
   background-position: center;
   min-height: 120px;
@@ -25,7 +25,9 @@
 
 .seccion-pago {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
   padding: 2rem 1rem;
   box-sizing: border-box;
 }
@@ -48,7 +50,7 @@
   font-weight: bold;
   margin-bottom: 2rem;
   color: #333;
-  
+
   i {
     font-size: 1.1rem;
   }
@@ -64,13 +66,14 @@
   color: #111;
 }
 
-.bloque-resumen, .bloque-metodos {
+.bloque-resumen,
+.bloque-metodos {
   background: #fdfdfd;
   border: 1px solid #eef0f2;
   border-radius: 15px;
   padding: 1.2rem;
   margin-bottom: 2rem;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.01);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.01);
 }
 
 .tiempos {
@@ -81,7 +84,7 @@
 .tiempo-item {
   display: flex;
   flex-direction: column;
-  
+
   &.de-derecha {
     align-items: flex-end;
   }
@@ -160,7 +163,7 @@
   border: 2px solid #b0b0b0;
   box-sizing: border-box;
   display: block;
-  
+
   &.amarillo {
     background-color: #fde870;
     border-color: #fde870;
@@ -300,7 +303,9 @@
   color: #222;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s, transform 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 
   &:hover {
     background-color: #edd54c;
@@ -313,11 +318,11 @@
 
 ::ng-deep .p-radiobutton .p-radiobutton-box {
   border-color: #cccccc !important;
-  
+
   &.p-highlight {
     border-color: #fde870 !important;
     background: #fde870 !important;
-    
+
     .p-radiobutton-icon {
       background-color: #333333 !important;
     }
@@ -325,15 +330,81 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 400px) {
   .acciones-finales {
-    gap: 0.5rem; // Reduce un poco el espacio en teléfonos muy angostos
+    gap: 0.5rem;
   }
   .btn-pagar {
     width: 110px;
   }
+}
+.miga-pan-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  padding: 10px 20px;
+  font-family: "Archivo", sans-serif;
+}
+
+.step {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #eef0f2;
+  white-space: nowrap;
+
+  &.completed {
+    background: #e3f2fd;
+    color: #1e88e5;
+    font-weight: 600;
+  }
+
+  &.active {
+    background: #fde870;
+    color: #333;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: #e0e0e0;
+  margin: 0 10px;
+
+  &.completed {
+    background: #1e88e5;
+  }
+}
+
+.dot-icon {
+  width: 8px;
+  height: 8px;
+  background-color: #1e88e5;
+  border-radius: 50%;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.sub-terminal {
+  font-size: 0.75rem;
+  color: #757575;
+  margin: 2px 0 0 0;
+  font-weight: normal;
 }

@@ -4,9 +4,22 @@
   </div>
 
   <div class="seccion-pago">
+    <div class="miga-pan-container">
+      <div class="step completed">Buscar Viaje</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Cooperativa</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Iterario</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Asientos</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Pago</div>
+      <div class="step-line completed"></div>
+
+      <div class="step active">Confirmación pago</div>
+    </div>
     <div class="tarjeta-pago">
-      
-      <div class="accion-regresar">
+      <div class="accion-regresar" (click)="regresarAlPago()">
         <i class="pi pi-arrow-left"></i>
         <span>Regresar</span>
       </div>
@@ -17,26 +30,48 @@
         </div>
         <h2 class="titulo-exito">PAGO EXITOSO</h2>
         <p class="subtitulo-exito">
-          Tu reserva para <span class="fuerte">Ciudad de origen → Ciudad de destino</span> ha sido confirmada con la unidad <span class="fuerte">#00</span>
+          Tu reserva para
+          <span class="fuerte">Ciudad de origen → Ciudad de destino</span> ha
+          sido confirmada con la unidad <span class="fuerte">#00</span>
         </p>
       </div>
 
       <div class="bloque-detalle-tarjeta">
-        <h3 class="titulo-tarjeta-interna text-center">REF. PAGO<br>COOPERATIVA - 000</h3>
-        
+        <h3 class="titulo-tarjeta-interna text-center">
+          REF. PAGO<br />COOPERATIVA - 000
+        </h3>
+
         <div class="contenido-datos">
-          <p><span class="fuerte">Fecha de pago:</span> <span class="texto-gris">-- de -- de ---- - --:--</span></p>
-          <p><span class="fuerte">Ruta:</span> <span class="texto-gris">Ciudad de origen → Ciudad de destino</span></p>
-          <p><span class="fuerte">Fecha de viaje:</span> <span class="texto-gris">-- de -- de ----</span></p>
-          <p><span class="fuerte">Número de unidad:</span> <span class="texto-gris">##</span></p>
-          <p><span class="fuerte">Número de andén:</span> <span class="texto-gris">##</span></p>
-          <p><span class="fuerte">Asientos:</span> <span class="texto-gris">Ninguno seleccionado</span></p>
+          <p>
+            <span class="fuerte">Fecha de pago:</span>
+            <span class="texto-gris">-- de -- de ---- - --:--</span>
+          </p>
+          <p>
+            <span class="fuerte">Ruta:</span>
+            <span class="texto-gris">Ciudad de origen → Ciudad de destino</span>
+          </p>
+          <p>
+            <span class="fuerte">Fecha de viaje:</span>
+            <span class="texto-gris">-- de -- de ----</span>
+          </p>
+          <p>
+            <span class="fuerte">Número de unidad:</span>
+            <span class="texto-gris">##</span>
+          </p>
+          <p>
+            <span class="fuerte">Número de andén:</span>
+            <span class="texto-gris">##</span>
+          </p>
+          <p>
+            <span class="fuerte">Asientos:</span>
+            <span class="texto-gris">Ninguno seleccionado</span>
+          </p>
         </div>
       </div>
 
       <div class="bloque-detalle-tarjeta">
         <h3 class="titulo-tarjeta-interna text-center">RESUMEN DE PAGO</h3>
-        
+
         <table class="tabla-resumen">
           <thead>
             <tr>
@@ -62,7 +97,7 @@
 
       <div class="bloque-detalle-tarjeta">
         <h3 class="titulo-tarjeta-interna text-center">RESUMEN DE PASAJEROS</h3>
-        
+
         <div class="item-pasajero">
           <i class="pi pi-user icono-pasajero"></i>
           <div class="datos-pasajero">
@@ -72,6 +107,109 @@
         </div>
       </div>
 
+      <div class="bloque-acciones-finales">
+        <button class="btn-ver-boleto" (click)="abrirBoleto()">
+          <i class="pi pi-ticket"></i> Ver Boleto Electrónico
+        </button>
+
+        <a class="enlace-principal" (click)="irAPaginaPrincipal()">
+          Ir a página principal
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="mostrarBoletoModal">
+  <div class="boleto-modal">
+    <div class="boleto-header">
+      <h3>TuViaje - Boleto Digital</h3>
+      <button class="btn-cerrar-modal" (click)="cerrarBoleto()">&times;</button>
+    </div>
+
+    <div class="boleto-cuerpo">
+      <div class="boleto-info-principal">
+        <h4>COOPERATIVA - 000</h4>
+        <p class="ruta-modal">Ciudad de origen ➔ Ciudad de destino</p>
+      </div>
+
+      <div class="boleto-qr-contenedor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+          class="qr-svg"
+        >
+          <rect width="100" height="100" fill="#ffffff" />
+          <path
+            d="M5,5 h20 v20 h-20 z M9,9 h12 v12 h-12 z M13,13 h4 v4 h-4 z"
+            fill="#000"
+          />
+          <path
+            d="M75,5 h20 v20 h-20 z M79,9 h12 v12 h-12 z M83,13 h4 v4 h-4 z"
+            fill="#000"
+          />
+          <path
+            d="M5,75 h20 v20 h-20 z M9,79 h12 v12 h-12 z M13,83 h4 v4 h-4 z"
+            fill="#000"
+          />
+          <path
+            d="M35,5 h5 v5 h-5 z M45,5 h10 v5 h-10 z M60,10 h5 v10 h-5 z M35,20 h10 v5 h-10 z M50,20 h5 v5 h-5 z"
+            fill="#000"
+          />
+          <path
+            d="M10,35 h5 v10 h-5 z M20,40 h15 v5 h-15 z M5,55 h10 v5 h-10 z M25,55 h5 v5 h-5 z"
+            fill="#000"
+          />
+          <path
+            d="M40,35 h20 v5 h-20 z M35,45 h5 v15 h-5 z M50,45 h15 v5 h-15 z M45,60 h10 v5 h-10 z"
+            fill="#000"
+          />
+          <path
+            d="M75,35 h10 v5 h-10 z M90,40 h5 v10 h-5 z M80,50 h10 v5 h-10 z M70,60 h15 v5 h-15 z"
+            fill="#000"
+          />
+          <path
+            d="M35,75 h5 v15 h-5 z M45,85 h15 v5 h-15 z M65,75 h5 v10 h-5 z M60,90 h15 v5 h-15 z"
+            fill="#000"
+          />
+          <path d="M80,75 h15 v5 h-15 z M85,85 h10 v5 h-10 z" fill="#000" />
+        </svg>
+        <span class="codigo-reserva">COD: TV-982348A</span>
+      </div>
+
+      <div class="boleto-detalles-grid">
+        <div>
+          <span class="label">Pasajero</span>
+          <span class="valor">Nombre de Pasajero</span>
+        </div>
+        <div>
+          <span class="label">Cédula</span>
+          <span class="valor">Cédula de identidad</span>
+        </div>
+        <div>
+          <span class="label">Fecha / Hora</span>
+          <span class="valor">--/--/---- --:--</span>
+        </div>
+        <div>
+          <span class="label">Asiento(s)</span>
+          <span class="valor">##</span>
+        </div>
+        <div>
+          <span class="label">N° Unidad</span>
+          <span class="valor">##</span>
+        </div>
+        <div>
+          <span class="label">Andén</span>
+          <span class="valor">##</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="boleto-footer">
+      <p>
+        Presenta este código QR digital o impreso al abordar.
+        <a class="enlace-descarga">Descarga aquí</a>
+      </p>
     </div>
   </div>
 </div>
