@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { IterarioComponent } from './modules/iterario/pages/iterario/iterario.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, IterarioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  host: { 'ngSkipHydration': 'true' } //funciona para evitar el error de "ExpressionChangedAfterItHasBeenCheckedError" al usar rutas en Angular
+  
 })
-export class AppComponent {
-  title = 'Tuviaje';
-}
+export class AppComponent {}

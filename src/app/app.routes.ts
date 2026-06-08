@@ -35,7 +35,18 @@ export const routes: Routes = [
     path: 'iterario-viaje',
     loadComponent: () =>
       import('./modules/iterario/pages/iterario/iterario.component').then(
-        (m) => m.IterarioComponent,
+        (m) => m.IterarioComponent
       ),
   },
+  { 
+    path: 'pago', 
+    loadComponent: () => 
+      import('./modules/pago/pago/pago.component').then(
+        (m) => m.PagoComponent
+      ),
+  },
+  { 
+    path: '**', 
+    redirectTo: '' 
+  }
 ];
