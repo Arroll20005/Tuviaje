@@ -1,7 +1,122 @@
 <div class="contenedor-principal">
-    <div class="header">
-        <img src="assets/logos/logoletras.svg" alt="Logo">
-    </div>
+  <div class="header">
+    <img src="/assets/logos/logoletras.svg" alt="Logo" />
+  </div>
 
-    
+  <div class="seccion-pago">
+    <div class="tarjeta-pago">
+      
+      <div class="accion-regresar">
+        <i class="pi pi-arrow-left"></i>
+        <span>Regresar</span>
+      </div>
+
+      <h2 class="titulo-seccion">RESUMEN DE RESERVA</h2>
+      <div class="bloque-resumen">
+        <div class="tiempos">
+          <div class="tiempo-item">
+            <span class="etiqueta-resumen">Hora de salida</span>
+            <span class="valor-resumen fuerte">--:-- --</span>
+          </div>
+          <div class="tiempo-item de-derecha">
+            <span class="etiqueta-resumen">Hora de llegada</span>
+            <span class="valor-resumen fuerte">--:-- --</span>
+          </div>
+        </div>
+
+        <hr class="linea-division" />
+
+        <div class="detalle-ruta">
+          <div class="item-ruta">
+            <span class="fuerte">Fecha:</span> <span class="texto-gris">-- de -- de ----</span>
+          </div>
+          
+<div class="mapa-ruta">
+  <div class="linea-conexion"></div>
+  
+  <div class="nodo-ruta">
+    <div class="indicador-punto">
+      <span class="punto amarillo"></span>
+    </div>
+    <div class="contenido-nodo">
+      <span class="fuerte">Origen</span>
+      <span class="texto-ciudad">Ciudad de origen</span>
+    </div>
+  </div>
+
+  <div class="nodo-ruta">
+    <div class="indicador-punto">
+      <span class="punto blanco"></span>
+    </div>
+    <div class="contenido-nodo">
+      <span class="fuerte">Destino</span>
+      <span class="texto-ciudad">Ciudad de destino</span>
+    </div>
+  </div>
+</div>
+
+          <hr class="linea-division-punteada" />
+
+          <div class="item-ruta">
+            <span class="fuerte">Asientos:</span> <span class="texto-gris">Ninguno seleccionado</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="titulo-seccion">MÉTODO DE PAGO</h2>
+      <div class="bloque-metodos">
+        
+        <div class="opcion-metodo">
+          <p-radioButton 
+            name="metodo" 
+            value="tarjeta" 
+            [(ngModel)]="metodoPago" 
+            id="tarjeta">
+          </p-radioButton>
+          <label for="tarjeta" class="fuerte label-metodo">Tarjeta de crédito/débito</label>
+        </div>
+
+        <div class="formulario-tarjeta" *ngIf="metodoPago === 'tarjeta'">
+          <input type="text" class="input-pago" placeholder="Número de tarjeta" />
+          <div class="fila-inputs">
+            <input type="text" class="input-pago" placeholder="Fecha de vencimiento" />
+            <input type="text" class="input-pago" placeholder="CVV" />
+            <div class="icono-visa">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" />
+            </div>
+          </div>
+        </div>
+
+        <div class="opcion-metodo">
+          <p-radioButton 
+            name="metodo" 
+            value="billetera" 
+            [(ngModel)]="metodoPago" 
+            id="billetera">
+          </p-radioButton>
+          <label for="billetera" class="fuerte label-metodo">Billetera digital</label>
+        </div>
+
+        <div class="opcion-metodo">
+          <p-radioButton 
+            name="metodo" 
+            value="efectivo" 
+            [(ngModel)]="metodoPago" 
+            id="efectivo">
+          </p-radioButton>
+          <label for="efectivo" class="fuerte label-metodo">Efectivo en agencia</label>
+        </div>
+
+        <div class="acciones-finales">
+          <div class="btn-total">
+            <span class="etiqueta-total">Total:</span>
+            <span class="valor-total">$0.00</span>
+          </div>
+          <button type="button" class="btn-pagar">PAGAR</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </div>

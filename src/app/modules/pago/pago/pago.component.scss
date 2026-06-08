@@ -7,6 +7,8 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Archivo', sans-serif;
+  background-color: #f5f5f5;
 }
 
 .header {
@@ -19,6 +21,319 @@
   align-items: center;
   width: 100%;
   margin: 0;
+}
+
+.seccion-pago {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.tarjeta-pago {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.accion-regresar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
+  
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.titulo-seccion {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  color: #111;
+}
+
+.bloque-resumen, .bloque-metodos {
+  background: #fdfdfd;
+  border: 1px solid #eef0f2;
+  border-radius: 15px;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.01);
+}
+
+.tiempos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tiempo-item {
+  display: flex;
+  flex-direction: column;
+  
+  &.de-derecha {
+    align-items: flex-end;
+  }
+}
+
+.etiqueta-resumen {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.2rem;
+}
+
+.valor-resumen {
+  font-size: 1.3rem;
+}
+
+.fuerte {
+  font-weight: 700;
+  color: #222;
+}
+
+.texto-gris {
+  color: #666;
+}
+
+.linea-division {
   border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1rem 0;
+}
+
+.linea-division-punteada {
+  border: none;
+  border-top: 1px dashed #cccccc;
+  margin: 1.2rem 0;
+}
+
+/* Gráfico de línea temporal de Origen/Destino - ALINEACIÓN PERFECTA */
+.mapa-ruta {
+  position: relative;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.linea-conexion {
+  position: absolute;
+  left: 11px; /* Centrado exacto respecto al contenedor del círculo de 24px */
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background-color: #b0b0b0;
+  z-index: 1;
+}
+
+.nodo-ruta {
+  position: relative;
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio superior del bloque */
+  gap: 1rem;
+  z-index: 2;
+}
+
+.indicador-punto {
+  width: 24px; /* Ancho del contenedor para crear una columna de alineación simétrica */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4px; /* Centra el círculo verticalmente con la primera línea de texto */
+}
+
+.punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #b0b0b0;
+  box-sizing: border-box;
+  display: block;
+  
+  &.amarillo {
+    background-color: #fde870;
+    border-color: #fde870;
+  }
+  &.blanco {
+    background-color: white;
+    border-color: #b0b0b0;
+  }
+}
+
+.contenido-nodo {
+  display: flex;
+  flex-direction: column;
+}
+
+.texto-ciudad {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.1rem;
+}
+
+.opcion-metodo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.label-metodo {
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.formulario-tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1rem 0 1.5rem 1.8rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.input-pago {
+  border: 1px solid #cccccc;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
   outline: none;
+  font-family: "Archivo", sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: #999;
+  }
+}
+
+.fila-inputs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  .input-pago {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.icono-visa {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  height: 38px;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 4px;
+  box-sizing: border-box;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* --- SECCIÓN CORREGIDA: ALINEACIÓN HORIZONTAL --- */
+.acciones-finales {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.btn-total {
+  background-color: rgba(#fde870, 0.25);
+  border: 1px solid rgba(#fde870, 0.5);
+  height: 48px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; // Toma el espacio restante proporcionalmente
+  gap: 0.4rem;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.etiqueta-total {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.valor-total {
+  font-size: 1.05rem;
+  color: #000;
+}
+
+.btn-pagar {
+  background-color: #fde870;
+  border: none;
+  height: 48px;
+  width: 140px; // Tamaño fijo perfecto para que no se deforme
+  border-radius: 25px;
+  font-family: "Archivo", sans-serif;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #222;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, transform 0.1s;
+
+  &:hover {
+    background-color: #edd54c;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box {
+  border-color: #cccccc !important;
+  
+  &.p-highlight {
+    border-color: #fde870 !important;
+    background: #fde870 !important;
+    
+    .p-radiobutton-icon {
+      background-color: #333333 !important;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 400px) {
+  .acciones-finales {
+    gap: 0.5rem; // Reduce un poco el espacio en teléfonos muy angostos
+  }
+  .btn-pagar {
+    width: 110px;
+  }
 }
