@@ -1,117 +1,161 @@
 <div class="page">
-     <div class="hero">
-        <img src="/assets/images/guayaquil.jpg" alt="header">
-
+  <div class="hero">
+    <img src="/assets/images/guayaquil.jpg" alt="header" />
     <div class="overlay">
-        <img src="/assets/images/logoletras.svg" alt="logo">
+      <img src="/assets/images/logoletras.svg" alt="logo" />
     </div>
-    </div>
-<div class="desktop-screen-container">
-
-  <div class="desktop-layout">
-    
-    <div class="panel-left">
-        <div class="header"> 
-            <img src="/assets/images/logoletras.svg" alt="logo" class="logo-header">
-        </div>
-      
-
-      <div class="route-card">
-        <div class="route-row">
-          <div class="route-point">
-            <span class="dot-icon">📍</span>
-            <div class="point-info">
-              <small>Origen</small>
-              <strong>{{ origen }}</strong>
-            </div>
-          </div>
-          <div class="route-arrows">
-            <span class="arrow-right">→</span>
-            <span class="arrow-left">←</span>
-          </div>
-          <div class="route-point">
-            <span class="dot-icon">📍</span>
-            <div class="point-info">
-              <small>Destino</small>
-              <strong>{{ destino }}</strong>
-              <p class="sub-terminal">{{ terminalDestino }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="route-actions">
-          <div class="calendar-wrapper">
-            <label>Fecha de ida</label>
-            <p-calendar 
-              [(ngModel)]="fechaViaje" 
-              placeholder="Selecciona fecha" 
-              [showIcon]="true" 
-              iconDisplay="input"
-              dateFormat="dd/mm/yy">
-            </p-calendar>
-          </div>
-          
-          <button pButton type="button" label="Solo IDA" class="p-button-outlined p-button-secondary btn-ida"></button>
-        </div>
-      </div>
-
-      <div class="footer-controls">
-        <div class="passengers-indicator">
-          <span>Pasajeros seleccionados: <strong>{{ totalSeleccionados }}</strong> / {{ maxPasajeros }} 👥</span>
-        </div>
-        
-        <div class="action-buttons">
-          <button pButton type="button" label="Cancelar Selección" class="p-button-outlined p-button-danger btn-cancel" (click)="cancelar()"></button>
-          <button pButton type="button" label="Proceder al Pago" class="p-button-primary btn-pay" [disabled]="totalSeleccionados === 0" (click)="pagar()"></button>
-        </div>
-      </div>
-
-      <div class="operator-info">
-        <span>Operado por: <strong>{{ operador }}</strong></span>
-      </div>
-    </div>
-
-    <div class="panel-right">
-      <div class="seats-section">
-        <h2>Selecciona tus asientos</h2>
-        <p class="instruction-text">Haz clic sobre los asientos disponibles para reservarlos.</p>
-
-        <div class="bus-container">
-          <div class="bus-front">
-            <div class="steering-wheel">⭕ Conductor</div>
-          </div>
-
-          <div class="bus-layout">
-            <div class="seats-row">
-              <div *ngFor="let asiento of asientosFila1" 
-                   class="seat" 
-                   [ngClass]="asiento.estado"
-                   (click)="seleccionarAsiento(asiento)">
-                <span class="seat-number">{{ asiento.numero }}</span>
-              </div>
-            </div>
-
-            <div class="bus-aisle">
-              <div class="legend-box">
-                <div class="legend-item"><span class="box ocupado"></span> Ocupado</div>
-                <div class="legend-item"><span class="box disponible"></span> Disponible</div>
-                <div class="legend-item"><span class="box seleccionado"></span> Seleccionado</div>
-              </div>
-            </div>
-
-            <div class="seats-row">
-              <div *ngFor="let asiento of asientosFila2" 
-                   class="seat" 
-                   [ngClass]="asiento.estado"
-                   (click)="seleccionarAsiento(asiento)">
-                <span class="seat-number">{{ asiento.numero }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
-</div>
+
+  <div class="desktop-screen-container">
+    <div class="miga-pan-container">
+      <div class="step completed">Buscar Viaje</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Cooperativa</div>
+      <div class="step-line completed"></div>
+      <div class="step completed">Iterario</div>
+      <div class="step-line completed"></div>
+      <div class="step active">Asientos</div>
+      <div class="step-line"></div>
+      <div class="step">Pago</div>
+      <div class="step-line"></div>
+      <div class="step">Confirmación</div>
+    </div>
+
+    <div class="desktop-layout">
+      <div class="panel-left">
+        <div class="route-card">
+          <div class="route-row">
+            <div class="route-point">
+              <span class="dot-icon"></span>
+              <div class="point-info">
+                <small>Origen</small>
+                <strong>{{ origen }}</strong>
+                <p class="sub-terminal">Terminal Terrestre de Portoviejo</p>
+              </div>
+            </div>
+            <div class="route-arrows">
+              <span class="arrow-right">→</span>
+              <span class="arrow-left">←</span>
+            </div>
+            <div class="route-point">
+              <span class="dot-icon"></span>
+              <div class="point-info">
+                <small>Destino</small>
+                <strong>{{ destino }}</strong>
+                <p class="sub-terminal">{{ terminalDestino }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-actions">
+            <div class="calendar-wrapper">
+              <label>Fecha de ida</label>
+              <p-calendar
+                [(ngModel)]="fechaViaje"
+                placeholder="Selecciona fecha"
+                [showIcon]="true"
+                iconDisplay="input"
+                dateFormat="dd/mm/yy"
+              >
+              </p-calendar>
+            </div>
+
+            <button
+              pButton
+              type="button"
+              label="Solo IDA"
+              class="p-button-outlined p-button-secondary btn-ida"
+            ></button>
+          </div>
+        </div>
+
+        <div class="footer-controls">
+          <div class="passengers-indicator">
+            <span
+              >Pasajeros seleccionados:
+              <strong>{{ totalSeleccionados }}</strong> /
+              {{ maxPasajeros }}</span
+            >
+          </div>
+
+          <div class="action-buttons">
+            <button
+              pButton
+              type="button"
+              label="Cancelar Selección"
+              class="p-button-outlined p-button-danger btn-cancel"
+              (click)="cancelar()"
+            ></button>
+            <button
+              pButton
+              type="button"
+              label="Proceder al Pago"
+              class="p-button-primary btn-pay"
+              [disabled]="totalSeleccionados === 0"
+              (click)="pagar()"
+            ></button>
+          </div>
+        </div>
+
+        <div class="operator-info">
+          <span
+            >Operado por: <strong>{{ operador }}</strong></span
+          >
+        </div>
+      </div>
+
+      <div class="panel-right">
+        <div class="seats-section">
+          <h2>Selecciona tus asientos</h2>
+          <p class="instruction-text">
+            Haz clic sobre los asientos disponibles para reservarlos.
+          </p>
+
+          <div class="bus-container">
+            <div class="bus-front">
+              <div class="steering-wheel">Conductor</div>
+            </div>
+
+            <div class="bus-layout">
+              <div class="seats-row">
+                <div
+                  *ngFor="let asiento of asientosFila1"
+                  class="seat"
+                  [ngClass]="asiento.estado"
+                  (click)="seleccionarAsiento(asiento)"
+                >
+                  <span class="seat-number">{{ asiento.numero }}</span>
+                </div>
+              </div>
+
+              <div class="bus-aisle">
+                <div class="legend-box">
+                  <div class="legend-item">
+                    <span class="box ocupado"></span> Ocupado
+                  </div>
+                  <div class="legend-item">
+                    <span class="box disponible"></span> Disponible
+                  </div>
+                  <div class="legend-item">
+                    <span class="box seleccionado"></span> Seleccionado
+                  </div>
+                </div>
+              </div>
+
+              <div class="seats-row">
+                <div
+                  *ngFor="let asiento of asientosFila2"
+                  class="seat"
+                  [ngClass]="asiento.estado"
+                  (click)="seleccionarAsiento(asiento)"
+                >
+                  <span class="seat-number">{{ asiento.numero }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

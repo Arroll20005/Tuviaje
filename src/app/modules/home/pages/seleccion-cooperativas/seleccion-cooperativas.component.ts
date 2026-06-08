@@ -32,7 +32,7 @@ export class SeleccionCooperativasComponent {
     },
   ];
 
-  verAsientos() {
-    this.router.navigate(['/asientos']);
+  verInfo() {
+    this.router.navigate(['/itinerario-viaje']);
   }
 }

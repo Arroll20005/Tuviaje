@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { ButtonModule } from 'primeng/button';
+import { Router } from '@angular/router';
 
 interface Asiento {
   numero: number;
@@ -14,10 +15,9 @@ interface Asiento {
   standalone: true,
   imports: [CommonModule, FormsModule, CalendarModule, ButtonModule],
   templateUrl: './asientos.component.html',
-  styleUrl: './asientos.component.scss'
+  styleUrl: './asientos.component.scss',
 })
 export class AsientosComponent implements OnInit {
-
   origen = 'Portoviejo';
   destino = 'Quito';
   terminalDestino = 'Terminal Terrestre de Quito Sur-Quitumbe';
@@ -30,6 +30,8 @@ export class AsientosComponent implements OnInit {
   asientosFila1: Asiento[] = [];
   asientosFila2: Asiento[] = [];
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     this.cargarAsientosMock();
   }
@@ -41,7 +43,7 @@ export class AsientosComponent implements OnInit {
       { numero: 3, estado: 'seleccionado' },
       { numero: 4, estado: 'disponible' },
       { numero: 5, estado: 'disponible' },
-      { numero: 6, estado: 'disponible' }
+      { numero: 6, estado: 'disponible' },
     ];
 
     this.asientosFila2 = [
@@ -50,14 +52,14 @@ export class AsientosComponent implements OnInit {
       { numero: 9, estado: 'disponible' },
       { numero: 10, estado: 'disponible' },
       { numero: 11, estado: 'seleccionado' },
-      { numero: 12, estado: 'disponible' }
+      { numero: 12, estado: 'disponible' },
     ];
   }
 
   get totalSeleccionados(): number {
-    return [...this.asientosFila1, ...this.asientosFila2]
-      .filter(asiento => asiento.estado === 'seleccionado')
-      .length;
+    return [...this.asientosFila1, ...this.asientosFila2].filter(
+      (asiento) => asiento.estado === 'seleccionado',
+    ).length;
   }
 
   seleccionarAsiento(asiento: Asiento): void {
@@ -71,7 +73,9 @@ export class AsientosComponent implements OnInit {
     }
 
     if (this.totalSeleccionados >= this.maxPasajeros) {
-      alert(`Solo puedes seleccionar un máximo de ${this.maxPasajeros} asientos.`);
+      alert(
+        `Solo puedes seleccionar un máximo de ${this.maxPasajeros} asientos.`,
+      );
       return;
     }
 
@@ -79,21 +83,20 @@ export class AsientosComponent implements OnInit {
   }
 
   cancelar(): void {
-    [...this.asientosFila1, ...this.asientosFila2].forEach(asiento => {
+    [...this.asientosFila1, ...this.asientosFila2].forEach((asiento) => {
       if (asiento.estado === 'seleccionado') {
         asiento.estado = 'disponible';
       }
     });
+    this.router.navigate(['/seleccion-cooperativas']);
   }
 
   pagar(): void {
-    const seleccionados = [
-      ...this.asientosFila1,
-      ...this.asientosFila2
-    ]
-      .filter(asiento => asiento.estado === 'seleccionado')
-      .map(asiento => asiento.numero);
+    const seleccionados = [...this.asientosFila1, ...this.asientosFila2]
+      .filter((asiento) => asiento.estado === 'seleccionado')
+      .map((asiento) => asiento.numero);
 
     console.log('Procesando pago para los asientos:', seleccionados);
+    this.router.navigate(['/pago']);
   }
 }
