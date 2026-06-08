@@ -8,6 +8,8 @@ import { IterarioComponent } from './modules/iterario/pages/iterario/iterario.co
   imports: [RouterOutlet, IterarioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  
+  host: { 'ngSkipHydration': 'true' }
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'Tuviaje';
+}

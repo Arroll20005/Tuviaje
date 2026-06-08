@@ -1,26 +1,6 @@
-/* Reset global */
+/* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0; /* o el color que prefieras */
-}
-
-app-root {
-  display: block;
-  width: 100%;
-  min-height: 100vh;
-}
 
 .container {
   min-height: 100vh;
