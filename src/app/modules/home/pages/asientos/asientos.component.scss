@@ -1,0 +1,361 @@
+// Paleta de Colores
+$primary-blue: #1d71b8;
+$dark-blue: #14538a;
+$green-selected: #34a835;
+$gray-light: #f8fafc;
+$gray-border: #cbd5e1;
+$gray-occupied: #cbd5e1;
+$text-dark: #1e293b;
+
+.desktop-screen-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.hero{
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+
+}
+
+.hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+
+}
+
+.overlay{
+     position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.3);
+
+}
+
+.overlay img{
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+
+}
+
+.desktop-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; // Evita que en pantallas ultrawide se deforme
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  min-height: 70vh;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-header {
+ height: 20px;
+}
+// PANEL IZQUIERDO (Información)
+.panel-left {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 40px;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .brand-title {
+    color: $primary-blue;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 30px 0;
+    letter-spacing: -1px;
+    text-shadow: 1px 2px 0px rgba(0,0,0,0.08);
+  }
+
+  .route-card {
+    background: $gray-light;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+
+    .route-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .route-point {
+      display: flex;
+      gap: 12px;
+      flex: 1;
+      .point-info {
+        small { color: #64748b; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; }
+        strong { font-size: 1.4rem; color: $text-dark; display: block; margin-top: 2px; }
+        .sub-terminal { font-size: 0.8rem; color: #64748b; margin: 4px 0 0 0; line-height: 1.3; }
+      }
+    }
+
+    .route-arrows {
+      display: flex;
+      flex-direction: column;
+      color: $primary-blue;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 0 20px;
+      span { line-height: 0.6; }
+    }
+
+    .route-actions {
+      display: flex;
+      gap: 15px;
+      align-items: flex-end;
+
+      .calendar-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        label { font-size: 0.8rem; font-weight: 600; color: #64748b; }
+      }
+
+      ::v-deep .p-calendar {
+        width: 100%;
+        .p-inputtext {
+          padding: 10px 14px;
+          border-radius: 10px;
+          border: 1px solid $gray-border;
+          font-size: 0.95rem;
+        }
+      }
+
+      .btn-ida {
+        border-radius: 10px;
+        border: 1px solid $gray-border;
+        color: $text-dark;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        background: #ffffff;
+        height: 42px;
+      }
+    }
+  }
+
+  .footer-controls {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .passengers-indicator {
+      font-size: 1.15rem;
+      color: $text-dark;
+      background: #f1f5f9;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      
+      ::v-deep .p-button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        justify-content: center;
+      }
+    }
+  }
+
+  .operator-info {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #64748b;
+    strong { color: #15803d; }
+  }
+}
+
+// PANEL DERECHO (Mapa del autobús)
+.panel-right {
+  flex: 1.2;
+  background-color: $gray-light;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .seats-section {
+    width: 100%;
+    max-width: 500px;
+    
+    h2 {
+      font-size: 1.75rem;
+      color: $text-dark;
+      margin: 0 0 6px 0;
+      text-align: center;
+    }
+    .instruction-text {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin: 0 0 30px 0;
+      text-align: center;
+    }
+  }
+
+  // Estructura contenedora del autobús
+  .bus-container {
+    background: #ffffff;
+    border: 3px solid #e2e8f0;
+    border-radius: 24px 80px 80px 24px; // Frente redondeado simulando el parabrisas a la derecha
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .bus-front {
+    border-right: 2px dashed #cbd5e1;
+    padding-right: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .steering-wheel {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #94a3b8;
+      transform: rotate(-90deg);
+      white-space: nowrap;
+    }
+  }
+
+  .bus-layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .seats-row {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .bus-aisle {
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f5f9;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    // Leyenda adaptada al pasillo central
+    .legend-box {
+      display: flex;
+      gap: 15px;
+      font-size: 0.8rem;
+      color: #64748b;
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        
+        .box {
+          width: 14px;
+          height: 14px;
+          border-radius: 4px;
+          
+          &.ocupado { background-color: $gray-occupied; border: 1px solid #94a3b8; }
+          &.disponible { background-color: white; border: 2px solid $primary-blue; }
+          &.seleccionado { background-color: $green-selected; }
+        }
+      }
+    }
+
+    // El asiento ahora es más robusto en Desktop
+    .seat {
+      width: 45px;
+      height: 45px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      user-select: none;
+
+      &:hover:not(.ocupado) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      &.disponible {
+        border: 2px solid $primary-blue;
+        background-color: white;
+        color: $primary-blue;
+      }
+
+      &.ocupado {
+        background-color: $gray-occupied;
+        border: 2px solid #94a3b8;
+        color: #64748b;
+        cursor: not-allowed;
+        position: relative;
+        overflow: hidden;
+        
+        // Cruz elegante en el fondo
+        &::after {
+          content: '';
+          position: absolute;
+          width: 140%;
+          height: 2px;
+          background: #94a3b8;
+          transform: rotate(45deg);
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          width: 140%;
+          height: 2px;
+          background: #94a3b8;
+          transform: rotate(-45deg);
+        }
+        .seat-number { display: none; } // Oculta número si está ocupado
+      }
+
+      &.seleccionado {
+        background-color: $green-selected;
+        color: white;
+        border: 2px solid $green-selected;
+      }
+    }
+  }
+}
