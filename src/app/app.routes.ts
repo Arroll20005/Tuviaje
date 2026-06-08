@@ -21,6 +21,13 @@ export const routes: Routes = [
       ),
   },
   { 
+    path: 'confirmacion', 
+    loadComponent: () => 
+      import('./modules/pago/pages/confirmacion-pago/confirmacion-pago.component').then(
+        (m) => m.ConfirmacionPagoComponent
+      ),
+  },
+  { 
     path: '**', 
     redirectTo: '' 
   }
