@@ -1,79 +1,72 @@
-<div class="page"> 
-    <!-- HEADER -->
-    <div class="hero">
-        <img src="/assets/images/guayaquil.jpg" alt="header">
+<div class="page">
+  <!-- HEADER -->
+  <div class="hero">
+    <img src="/assets/images/guayaquil.jpg" alt="header" />
 
     <div class="overlay">
-        <img src="/assets/images/logoletras.svg" alt="logo">
+      <img src="/assets/images/logoletras.svg" alt="logo" />
     </div>
+  </div>
+
+  <!-- FORMULARIO -->
+  <div class="search-box">
+    <div class="cities">
+      <div class="city">
+        <label for="origen">Origen</label>
+
+        <input pInputText type="text" value="Portoviejo" />
+      </div>
+
+      <div class="swap">
+        <i class="pi pi-arrow-right-arrow-left"></i>
+      </div>
+
+      <div class="city">
+        <label for="destino">Destino</label>
+        <input pInputText type="text" value="Quito" />
+      </div>
     </div>
+  </div>
 
-
-   
-
-    <!-- FORMULARIO -->
-    <div class="search-box">
-        <div class="cities">
-            <div class="city">
-                <label for="origen">Origen</label>
-
-                <input pInputText type="text" value="Portoviejo">
-
-            </div>
-
-            <div class="swap">
-                <i class="pi pi-arrow-right-arrow-left"></i>
-            </div>
-
-            <div class="city">
-                <label for="destino">Destino</label>
-                <input pInputText type="text" value="Quito">
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="search-button">
- <p-button
+  <div class="search-button">
+    <p-button
       icon="pi pi-search"
       label="Buscar"
       [style]="{
-      'background':'#F7E15B',
-      'border':'none',
-    }">
+        background: '#F7E15B',
+        border: 'none',
+      }"
+    >
     </p-button>
-</div>
-    <!-- LISTA -->
-     <div class="cooperativas">
+  </div>
+  <!-- LISTA -->
+  <div class="cooperativas">
+    <p-card *ngFor="let cooperativa of cooperativas" class="cooperativa-card">
+      <div class="cooperativa-content">
+        <div class="logo">
+          <img
+            [src]="cooperativa.logo"
+            alt="{{ cooperativa.nombre }} logo"
+            class="logo-image"
+          />
 
-        <p-card
-        *ngFor="let cooperativa of cooperativas" 
-        class="cooperativa-card"
-        >
-        <div class="cooperativa-content">
-            <div class="logo">
-                <img [src]="cooperativa.logo" alt="{{ cooperativa.nombre }} logo" class="logo-image">
-                   
-                {{ cooperativa.nombre }}
-            </div>
-            <div class="times">
-                <span>{{ cooperativa.salida }}</span>
-                <i class="pi pi-arrow-right-arrow-left"></i>
-                <span>{{ cooperativa.llegada }}</span>
-            </div>
-            <div class="actions">
-
-                <p-button label="Ver asientos" 
-                severity="contrast">
-                </p-button>
-                <p-button [label]="cooperativa.precio" severity="success">
-                </p-button>
-            </div>
+          {{ cooperativa.nombre }}
         </div>
-
-        </p-card>
-        
-     </div>
-
+        <div class="times">
+          <span>{{ cooperativa.salida }}</span>
+          <i class="pi pi-arrow-right-arrow-left"></i>
+          <span>{{ cooperativa.llegada }}</span>
+        </div>
+        <div class="actions">
+          <button
+            pButton
+            type="button"
+            label="Ver asientos"
+            (click)="verAsientos()"
+          ></button>
+          <p-button [label]="cooperativa.precio" severity="success"> </p-button>
+        </div>
+      </div>
+    </p-card>
+  </div>
 </div>
